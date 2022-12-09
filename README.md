@@ -27,19 +27,22 @@ password=SUA_SENHA
 ````mvn install````
 
 ou na aba Maven do Intellij
+
 <img src="https://media.discordapp.net/attachments/897996889495076938/1050632756461326397/image.png"/>
 
 * Instalado as dependencias atualize liquibase, selecionando na aba do maven o plugin.
 >liquibase:update
+
 <img src="https://cdn.discordapp.com/attachments/897996889495076938/1050633518583119992/image.png"/>
 
 * Depois das tabelas criadas, rode o servidor da aplicação selecionando o plugin 
 > Jetty:run
+
 <img src="https://cdn.discordapp.com/attachments/897996889495076938/1050634344642904134/image.png"/>
 
 * Com isso a aplicação ja estará funcionando.
 * Agora acesse
-* >localhost:8080/zitrusWeb
+>localhost:8080/zitrusWeb
 
 *****************************************
 

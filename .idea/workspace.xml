@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a29114a-c848-436a-85f5-d94348502061" name="Changes" comment="#2 - Adicicao do liquibase, finalizado a funcao de salvar solicitacoes e lista de solicitacoes">
+    <list default="true" id="6a29114a-c848-436a-85f5-d94348502061" name="Changes" comment="#3 - Adição do tutorial no README.md">
+      <change afterPath="$PROJECT_DIR$/src/main/test/br/com/autorizacao/dao/SolicitacaoDAOTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autorizacao/dao/ISolicitacaoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/autorizacao/dao/ISolicitacaoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autorizacao/dao/SolicitacaoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/autorizacao/dao/SolicitacaoDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +23,7 @@
         <option value="Interface" />
         <option value="HTML File" />
         <option value="Class" />
+        <option value="JUnit3 Test Class" />
       </list>
     </option>
   </component>
@@ -42,6 +48,8 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit3",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit3": "junit.framework.TestCase",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
@@ -52,8 +60,78 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\lucas\desafioZitrus\zitrusWeb\src\main\webapp\styles" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="junit.framework.TestCase" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="br.com.autorizacao.dao" />
+    </key>
   </component>
-  <component name="RunManager" selected="Maven.zitrusWeb [jetty:run]">
+  <component name="RunManager" selected="JUnit.SolicitacaoDAOTest.testFindById">
+    <configuration name="SolicitacaoDAOTest.testDelete" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="zitrusWeb" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.autorizacao.dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="br.com.autorizacao.dao" />
+      <option name="MAIN_CLASS_NAME" value="br.com.autorizacao.dao.SolicitacaoDAOTest" />
+      <option name="METHOD_NAME" value="testDelete" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SolicitacaoDAOTest.testFindAll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="zitrusWeb" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.autorizacao.dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="br.com.autorizacao.dao" />
+      <option name="MAIN_CLASS_NAME" value="br.com.autorizacao.dao.SolicitacaoDAOTest" />
+      <option name="METHOD_NAME" value="testFindAll" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SolicitacaoDAOTest.testFindById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="zitrusWeb" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.autorizacao.dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="br.com.autorizacao.dao" />
+      <option name="MAIN_CLASS_NAME" value="br.com.autorizacao.dao.SolicitacaoDAOTest" />
+      <option name="METHOD_NAME" value="testFindById" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SolicitacaoDAOTest.testSave" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="zitrusWeb" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.autorizacao.dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="br.com.autorizacao.dao" />
+      <option name="MAIN_CLASS_NAME" value="br.com.autorizacao.dao.SolicitacaoDAOTest" />
+      <option name="METHOD_NAME" value="testSave" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="zitrusWeb [jetty:run]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -105,9 +183,21 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="JUnit.SolicitacaoDAOTest.testDelete" />
+      <item itemvalue="JUnit.SolicitacaoDAOTest.testFindAll" />
+      <item itemvalue="JUnit.SolicitacaoDAOTest.testFindById" />
+      <item itemvalue="JUnit.SolicitacaoDAOTest.testSave" />
       <item itemvalue="Maven.zitrusWeb [jetty:run]" />
       <item itemvalue="Maven.zitrusWeb [liquibase:update]" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.SolicitacaoDAOTest.testFindById" />
+        <item itemvalue="JUnit.SolicitacaoDAOTest.testFindAll" />
+        <item itemvalue="JUnit.SolicitacaoDAOTest.testDelete" />
+        <item itemvalue="JUnit.SolicitacaoDAOTest.testSave" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -132,7 +222,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670559342543</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="#3 - Adição do tutorial no README.md">
+      <created>1670561341096</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1670561341096</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -150,7 +247,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Primeiro Commit" />
     <MESSAGE value="#2 - Adicicao do liquibase, finalizado a funcao de salvar solicitacoes e lista de solicitacoes" />
-    <option name="LAST_COMMIT_MESSAGE" value="#2 - Adicicao do liquibase, finalizado a funcao de salvar solicitacoes e lista de solicitacoes" />
+    <MESSAGE value="#3 - Adição do tutorial no README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="#3 - Adição do tutorial no README.md" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

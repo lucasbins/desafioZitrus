@@ -47,26 +47,6 @@ public class SolicitacaoDAO implements ISolicitacaoDAO {
     }
 
     @Override
-    public Solicitacao update(Solicitacao solicitacao) {
-        try{
-            String sql = "UPDATE SOLICITACAO SET PACIENTE = ?, SEXO = ?, idade = ?, PROCEDIMENTO = ? WHERE ID = ?";
-
-            PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            preparedStatement.setString(1, solicitacao.getPaciente());
-            preparedStatement.setString(2, solicitacao.getSexo());
-            preparedStatement.setInt(3, solicitacao.getIdade());
-            preparedStatement.setLong(4, solicitacao.getProcedimento().getId());
-            preparedStatement.setLong(5, solicitacao.getId());
-
-            preparedStatement.executeUpdate();
-            preparedStatement.close();
-        }catch (SQLException ex){
-            throw new RuntimeException(ex);
-        }
-        return solicitacao;
-    }
-
-    @Override
     public void delete(Long id) {
         try {
             String sql = "DELETE FROM SOLICITACAO WHERE id = ?";
@@ -137,8 +117,8 @@ public class SolicitacaoDAO implements ISolicitacaoDAO {
                 sol = new Solicitacao(id,paciente,idade,sexo,procedimento.get());
             }
 
-            preparedStatement.executeUpdate();
             preparedStatement.close();
+            rs.close();
         }catch (SQLException ex){
             throw new RuntimeException(ex);
         }
