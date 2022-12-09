@@ -10,7 +10,7 @@ public class ConnectionFactory {
 
     public static Connection getConnection() {
         try {
-            return DriverManager.getConnection("jdbc:postgresql://localhost:5432/desafiodb", "postgres", "d&v");
+            return DriverManager.getConnection("jdbc:postgresql://localhost:5432/testedb", "postgres", "d&v");
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
         }

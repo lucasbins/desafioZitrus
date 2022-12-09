@@ -18,13 +18,17 @@ public class ProcedimentoDAO implements IProcedimentoDAO {
     @Override
     public Procedimento save(Procedimento procedimento) {
         try{
-            String sql = "INSERT INTO procedimentos (codigo, idade, sexo, permissao) VALUES (?, ?, ?, ?)";
+            String sql = "INSERT INTO procedimento (codigo, idade, sexo, permissao) VALUES (?, ?, ?, ?)";
 
             PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setString(1, procedimento.getCodigo());
             preparedStatement.setInt(2, procedimento.getIdade());
             preparedStatement.setString(3, procedimento.getSexo());
-            preparedStatement.setBoolean(4, procedimento.getPermissao());
+            if(procedimento.getPermissao().equals(Boolean.TRUE)){
+                preparedStatement.setDouble(4, 1);
+            }else {
+                preparedStatement.setDouble(4, 0);
+            }
 
             preparedStatement.executeUpdate();
 
@@ -46,13 +50,17 @@ public class ProcedimentoDAO implements IProcedimentoDAO {
     @Override
     public Procedimento update(Procedimento procedimento) {
         try{
-            String sql = "UPDATE procedimentos SET codigo = ?, idade = ?, sexo = ? , permissao = ? WHERE ID = ?";
+            String sql = "UPDATE procedimento SET codigo = ?, idade = ?, sexo = ? , permissao = ? WHERE ID = ?";
 
             PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setString(1, procedimento.getCodigo());
             preparedStatement.setInt(2, procedimento.getIdade());
             preparedStatement.setString(3, procedimento.getSexo());
-            preparedStatement.setBoolean(4, procedimento.getPermissao());
+            if(procedimento.getPermissao().equals(Boolean.TRUE)){
+                preparedStatement.setDouble(4, 1);
+            }else {
+                preparedStatement.setDouble(4, 0);
+            }
             preparedStatement.setLong(5,procedimento.getId());
 
             preparedStatement.executeUpdate();
@@ -82,7 +90,7 @@ public class ProcedimentoDAO implements IProcedimentoDAO {
 
     @Override
     public List<Procedimento> findAll() {
-            String sql = "SELECT ID, CODIGO, IDADE, SEXO, PERMISSAO FROM PROCEDIMENTOS";
+            String sql = "SELECT ID, CODIGO, IDADE, SEXO, PERMISSAO FROM PROCEDIMENTO";
             List<Procedimento> procs = new ArrayList<>();
         try{
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -93,14 +101,19 @@ public class ProcedimentoDAO implements IProcedimentoDAO {
                 String codigo = rs.getString("codigo");
                 int idade = rs.getInt("idade");
                 String sexo = rs.getString("sexo");
-                Boolean permissao = rs.getBoolean("permissao");
+                Boolean permissao;
+                if(rs.getDouble("permissao") == 1){
+                    permissao = Boolean.TRUE;
+                }else{
+                    permissao = Boolean.FALSE;
+                }
 
                 Procedimento proc = new Procedimento(id,codigo,sexo,idade,permissao);
                 procs.add(proc);
             }
 
-            preparedStatement.executeUpdate();
             preparedStatement.close();
+            rs.close();
         }catch (SQLException ex){
             throw new RuntimeException(ex);
         }
@@ -109,7 +122,7 @@ public class ProcedimentoDAO implements IProcedimentoDAO {
 
     @Override
     public Optional<Procedimento> findById(Long id) {
-        String sql = "SELECT ID, CODIGO, IDADE, SEXO, PERMISSAO FROM PROCEDIMENTOS WHERE id = ?";
+        String sql = "SELECT ID, CODIGO, IDADE, SEXO, PERMISSAO FROM PROCEDIMENTO WHERE id = ?";
         Procedimento proc = null;
         try{
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -122,7 +135,12 @@ public class ProcedimentoDAO implements IProcedimentoDAO {
                 String codigo = rs.getString("codigo");
                 int idade = rs.getInt("idade");
                 String sexo = rs.getString("sexo");
-                Boolean permissao = rs.getBoolean("permissao");
+                Boolean permissao;
+                if(rs.getDouble("permissao") == 1){
+                    permissao = Boolean.TRUE;
+                }else{
+                    permissao = Boolean.FALSE;
+                }
 
                 proc = new Procedimento(pKey,codigo,sexo,idade,permissao);
             }
@@ -136,9 +154,9 @@ public class ProcedimentoDAO implements IProcedimentoDAO {
     }
 
     @Override
-    public Optional<Procedimento> findByCod(String cod) {
-        String sql = "SELECT ID, CODIGO, IDADE, SEXO, PERMISSAO FROM PROCEDIMENTOS WHERE codigo = ?";
-        Procedimento proc = null;
+    public List<Procedimento> findByCod(String cod) {
+        String sql = "SELECT ID, CODIGO, IDADE, SEXO, PERMISSAO FROM PROCEDIMENTO WHERE codigo = ?";
+        List<Procedimento> procs = new ArrayList<>();
         try{
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1,cod);
@@ -150,9 +168,15 @@ public class ProcedimentoDAO implements IProcedimentoDAO {
                 String codigo = rs.getString("codigo");
                 int idade = rs.getInt("idade");
                 String sexo = rs.getString("sexo");
-                Boolean permissao = rs.getBoolean("permissao");
+                Boolean permissao;
+                if(rs.getInt("permissao") == 1){
+                    permissao = Boolean.TRUE;
+                }else{
+                    permissao = Boolean.FALSE;
+                }
 
-                proc = new Procedimento(id,codigo,sexo,idade,permissao);
+                Procedimento proc = new Procedimento(id,codigo,sexo,idade,permissao);
+                procs.add(proc);
             }
 
             preparedStatement.close();
@@ -160,6 +184,6 @@ public class ProcedimentoDAO implements IProcedimentoDAO {
         }catch (SQLException ex){
             throw new RuntimeException(ex);
         }
-        return Optional.ofNullable(proc);
+        return procs;
     }
 }

@@ -6,21 +6,23 @@ public class Solicitacao {
 
     private Long id;
     private String paciente;
-    private LocalDate nascimento;
+
+
+    private int idade;
     private String sexo;
 
     private Procedimento procedimento;
 
-    public Solicitacao(Long id, String paciente, LocalDate nascimento, String sexo, Procedimento procedimento) {
+    public Solicitacao(Long id, String paciente, int idade, String sexo, Procedimento procedimento) {
         this.id = id;
         this.paciente = paciente;
-        this.nascimento = nascimento;
+        this.idade = idade;
         this.sexo = sexo;
         this.procedimento = procedimento;
     }
 
-    public Solicitacao(String paciente, LocalDate nascimento, String sexo, Procedimento procedimento) {
-        this(null,paciente,nascimento,sexo, procedimento);
+    public Solicitacao(String paciente,int idade, String sexo, Procedimento procedimento) {
+        this(null,paciente,idade,sexo, procedimento);
     }
 
     public Long getId() {
@@ -31,20 +33,20 @@ public class Solicitacao {
         this.id = id;
     }
 
+    public int getIdade() {
+        return idade;
+    }
+
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
+
     public String getPaciente() {
         return paciente;
     }
 
     public void setPaciente(String paciente) {
         this.paciente = paciente;
-    }
-
-    public LocalDate getNascimento() {
-        return nascimento;
-    }
-
-    public void setNascimento(LocalDate nascimento) {
-        this.nascimento = nascimento;
     }
 
     public String getSexo() {

@@ -1,20 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
-    <title>Autorizacao de Procedimento</title>
+    <title>Solicitação de autorização de Procedimento</title>
+    <link href="styles/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-    <form action="Solicitacao">
-        Paciente: <input type="text" name="paciente">
-        Data de Nascimento: <input type="date" name="nascimento">
-        sexo:   <select name="sexo">
-                    <option value="null" selected></option>
-                    <option value="F">F</option>
-                    <option value="M">M</option>
-                </select>
-        Codigo do Procedimento: <input type="text" name="procedimento">
-        <input type="submit" value="Enviar">
-    </form>
+<body style="background-color: #c7dfc3">
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/zitrusWeb">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/zitrusWeb/formSolicitacao.html">Solicitacao de Autorização</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/zitrusWeb/ListaSolicitacoes">Solicitações autorizadas</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <article class="container-fluid">
+        <section class="row d-flex mt-5 justify-content-center">
+            <div class="col-md-6">
+                <h3>Solicitação de Autorização de Procedimento</h3>
+                <form class="form-control" action="Solicitacao" method="POST">
+                    <div>
+                        <label for="paciente" class="form-label">Paciente</label>
+                        <input type="text" class="form-control" name="paciente" id="paciente">
+                        <label for="idade" class="form-label">Idade</label>
+                        <input type="number" class="form-control" name="idade" id="idade">
+                        <label for="sexo" class="form-label">Sexo</label>
+                        <select name="sexo" id="sexo" class="form-select">
+                            <option value="null"></option>
+                            <option value="F">F</option>
+                            <option value="M">M</option>
+                        </select>
+                        <label for="procedimento" class="form-label">Codigo do Procedimento: </label>
+                        <input type="text" class="form-control" name="procedimento" id="procedimento">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <input type="submit" class="btn btn-success mt-4 col-md-6" value="Enviar">
+                    </div>
+                </form>
+            </div>
+        </section>
+    </article>
+    <footer class="container-fluid">
+        <div class="fixed-bottom bg-light text-center">
+            Copyright @lucasBraga
+        </div>
+    </footer>
 </body>
 </html>

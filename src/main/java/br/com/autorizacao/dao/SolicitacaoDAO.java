@@ -4,7 +4,6 @@ import br.com.autorizacao.model.Procedimento;
 import br.com.autorizacao.model.Solicitacao;
 
 import java.sql.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -20,13 +19,14 @@ public class SolicitacaoDAO implements ISolicitacaoDAO {
     @Override
     public Solicitacao save(Solicitacao solicitacao) {
         try{
-            String sql = "INSERT INTO SOLICITACAO (paciente, nascimento, sexo, procedimento) VALUES (?, ?, ?, ?)";
+            String sql = "INSERT INTO SOLICITACAO (paciente, idade, sexo, procedimento) VALUES (?, ?, ?, ?)";
 
             PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+
             preparedStatement.setString(1, solicitacao.getPaciente());
-            preparedStatement.setDate(2, java.sql.Date.valueOf(solicitacao.getNascimento()));
+            preparedStatement.setInt(2, solicitacao.getIdade());
             preparedStatement.setString(3, solicitacao.getSexo());
-            preparedStatement.setString(4, solicitacao.getProcedimento().getCodigo());
+            preparedStatement.setLong(4, solicitacao.getProcedimento().getId());
 
             preparedStatement.executeUpdate();
 
@@ -34,6 +34,7 @@ public class SolicitacaoDAO implements ISolicitacaoDAO {
             resultSet.next();
 
             Long generatedId = resultSet.getLong("id");
+
             solicitacao.setId(generatedId);
 
             preparedStatement.close();
@@ -48,13 +49,13 @@ public class SolicitacaoDAO implements ISolicitacaoDAO {
     @Override
     public Solicitacao update(Solicitacao solicitacao) {
         try{
-            String sql = "UPDATE SOLICITACAO SET PACIENTE = ?, SEXO = ?, NASCIMENTO = ?, PROCEDIMENTO = ? WHERE ID = ?";
+            String sql = "UPDATE SOLICITACAO SET PACIENTE = ?, SEXO = ?, idade = ?, PROCEDIMENTO = ? WHERE ID = ?";
 
             PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setString(1, solicitacao.getPaciente());
             preparedStatement.setString(2, solicitacao.getSexo());
-            preparedStatement.setDate(3, java.sql.Date.valueOf(solicitacao.getNascimento()));
-            preparedStatement.setString(4, solicitacao.getProcedimento().getCodigo());
+            preparedStatement.setInt(3, solicitacao.getIdade());
+            preparedStatement.setLong(4, solicitacao.getProcedimento().getId());
             preparedStatement.setLong(5, solicitacao.getId());
 
             preparedStatement.executeUpdate();
@@ -84,7 +85,7 @@ public class SolicitacaoDAO implements ISolicitacaoDAO {
 
     @Override
     public List<Solicitacao> findAll() {
-        String sql = "SELECT ID, PACIENTE, NASCIMENTO, SEXO, PROCEDIMENTO FROM SOLICITACAO";
+        String sql = "SELECT ID, PACIENTE, IDADE, SEXO, PROCEDIMENTO FROM SOLICITACAO";
         List<Solicitacao> sols = new ArrayList<>();
         try{
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -93,19 +94,19 @@ public class SolicitacaoDAO implements ISolicitacaoDAO {
             while(rs.next()){
                 Long id = rs.getLong("id");
                 String paciente = rs.getString("paciente");
-                LocalDate nasc = rs.getDate("nascimento").toLocalDate();
+                int idade = rs.getInt("idade");
                 String sexo = rs.getString("sexo");
-                String proc = rs.getString("procedimento");
+                Long proc = rs.getLong("procedimento");
 
                 ProcedimentoDAO procDao = new ProcedimentoDAO(connection);
-                Procedimento procedimento = procDao.findByCod(proc).get();
+                Optional<Procedimento> procedimento = procDao.findById(proc);
 
-                Solicitacao sol = new Solicitacao(id,paciente,nasc,sexo,procedimento);
+                Solicitacao sol = new Solicitacao(id,paciente,idade,sexo,procedimento.get());
                 sols.add(sol);
             }
 
-            preparedStatement.executeUpdate();
             preparedStatement.close();
+            rs.close();
         }catch (SQLException ex){
             throw new RuntimeException(ex);
         }
@@ -114,7 +115,7 @@ public class SolicitacaoDAO implements ISolicitacaoDAO {
 
     @Override
     public Optional<Solicitacao> findById(Long id) {
-        String sql = "SELECT ID, PACIENTE, NASCIMENTO, SEXO, PROCEDIMENTO FROM SOLICITACAO WHERE id = ?";
+        String sql = "SELECT ID, PACIENTE, IDADE, SEXO, PROCEDIMENTO FROM SOLICITACAO WHERE id = ?";
         Solicitacao sol = null;
         try{
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -125,14 +126,15 @@ public class SolicitacaoDAO implements ISolicitacaoDAO {
             while(rs.next()){
                 Long pKey = rs.getLong("id");
                 String paciente = rs.getString("paciente");
-                LocalDate nasc = rs.getDate("nascimento").toLocalDate();
+                int idade = rs.getInt("idade");
                 String sexo = rs.getString("sexo");
-                String proc = rs.getString("procedimento");
+                Long proc = rs.getLong("procedimento");
 
                 ProcedimentoDAO procDao = new ProcedimentoDAO(connection);
-                Procedimento procedimento = procDao.findByCod(proc).get();
+                Optional<Procedimento> procedimento = procDao.findById(proc);
 
-                sol = new Solicitacao(id,paciente,nasc,sexo,procedimento);
+
+                sol = new Solicitacao(id,paciente,idade,sexo,procedimento.get());
             }
 
             preparedStatement.executeUpdate();

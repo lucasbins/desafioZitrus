@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+		http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+		http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
+
+    <changeSet  author="lucas.braga"  id="create-table-procedimento">
+        <createTable tableName="PROCEDIMENTO">
+            <column name="ID"  type="SERIAL"/>
+            <column name="CODIGO" type="VARCHAR(255)"/>
+            <column name="IDADE"  type="NUMBER(9,0)"/>
+            <column name="SEXO"  type="VARCHAR(1)"/>
+            <column name="PERMISSAO"  type="NUMBER(1,0)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="lucas.braga"  id="insert-table-procedimento">
+        <sql>
+            INSERT INTO PROCEDIMENTO (CODIGO,IDADE,SEXO,PERMISSAO) VALUES (1234, 10, 'M', 0);
+            INSERT INTO PROCEDIMENTO (CODIGO,IDADE,SEXO,PERMISSAO) VALUES (4567, 20, 'M', 1);
+            INSERT INTO PROCEDIMENTO (CODIGO,IDADE,SEXO,PERMISSAO) VALUES (6789, 10, 'F', 0);
+            INSERT INTO PROCEDIMENTO (CODIGO,IDADE,SEXO,PERMISSAO) VALUES (6789, 10, 'M', 1);
+            INSERT INTO PROCEDIMENTO (CODIGO,IDADE,SEXO,PERMISSAO) VALUES (1234, 20, 'M', 1);
+            INSERT INTO PROCEDIMENTO (CODIGO,IDADE,SEXO,PERMISSAO) VALUES (4567, 30, 'F', 1);
+        </sql>
+    </changeSet>
+    <changeSet  author="lucas.braga"  id="create-table-solicitacao">
+        <createTable tableName="SOLICITACAO">
+            <column name="ID"  type="SERIAL"/>
+            <column name="PACIENTE" type="VARCHAR(255)"/>
+            <column name="IDADE"  type="NUMBER(9,0)"/>
+            <column name="SEXO"  type="VARCHAR(1)"/>
+            <column name="PROCEDIMENTO"  type="NUMBER(19,0)"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

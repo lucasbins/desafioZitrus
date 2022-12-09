@@ -2,7 +2,7 @@
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
-    <title>Zitrus Web</title>
+    <title>Autorizacao de Procedimento</title>
     <link href="styles/bootstrap.min.css" rel="stylesheet">
 </head>
 <body style="background-color: #c7dfc3">
@@ -25,10 +25,19 @@
                 </div>
             </nav>
     </div>
-    <footer class="container-fluid">
-        <div class="fixed-bottom bg-light text-center">
-            Copyright @lucasBraga
-        </div>
-    </footer>
+    <article class="container-fluid">
+            <section class="row d-flex mt-5 justify-content-center text-center">
+                <div class="col-md-6">
+                    <div class="alert alert-danger" role="alert">
+                      <h2>Procedimento não encontrado!</h2>
+                    </div>
+                </div>
+            </section>
+        </article>
+<footer class="container-fluid">
+    <div class="fixed-bottom bg-light text-center">
+        Copyright @lucasBraga
+    </div>
+</footer>
 </body>
 </html>
