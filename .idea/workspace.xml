@@ -4,29 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a29114a-c848-436a-85f5-d94348502061" name="Changes" comment="Primeiro Commit">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/autorizacao/servlet/ListaSolicitacaoServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/autorizacao/servlet/SolicitacaoServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/liquibase/db.changelog.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/liquibase/liquibase.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/autorizada.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/naoAutorizada.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/notFound.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/listaSolicitacoes.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/styles/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/styles/bootstrap.min.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autorizacao/dao/IProcedimentoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/autorizacao/dao/IProcedimentoDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autorizacao/dao/ProcedimentoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/autorizacao/dao/ProcedimentoDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autorizacao/dao/SolicitacaoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/autorizacao/dao/SolicitacaoDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autorizacao/infra/ConnectionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/autorizacao/infra/ConnectionFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autorizacao/model/Solicitacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/autorizacao/model/Solicitacao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/autorizacao/servlet/Solicitacao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/formSolicitacao.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/formSolicitacao.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+    <list default="true" id="6a29114a-c848-436a-85f5-d94348502061" name="Changes" comment="#2 - Adicicao do liquibase, finalizado a funcao de salvar solicitacoes e lista de solicitacoes">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,7 +125,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670530159395</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="#2 - Adicicao do liquibase, finalizado a funcao de salvar solicitacoes e lista de solicitacoes">
+      <created>1670559342543</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1670559342543</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -163,7 +149,8 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Primeiro Commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Primeiro Commit" />
+    <MESSAGE value="#2 - Adicicao do liquibase, finalizado a funcao de salvar solicitacoes e lista de solicitacoes" />
+    <option name="LAST_COMMIT_MESSAGE" value="#2 - Adicicao do liquibase, finalizado a funcao de salvar solicitacoes e lista de solicitacoes" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
